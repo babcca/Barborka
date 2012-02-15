@@ -1,0 +1,162 @@
+@CHARSET "UTF-8";
+html {
+	background: #d8d4c4 url(../img/background.png) repeat-x;
+}
+body {
+	padding: 0px;
+	margin: 0px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+table {
+	border: none;
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+.bar1 {
+	width: 100%;
+	height: 100px;
+	background-image: url(../img/top_strip_bg.png);
+	background-repeat: repeat-x;
+}
+.page-body {
+	margin: auto;
+	width: 835px;
+	height: 100%;
+}
+.head {
+	font-size: 0pt;
+	width: auto;
+	height: 100px;
+}
+.logo {
+	width: 175px;
+	height: 100px;
+}
+.banner {
+	position: relative;
+	top: -100px;
+	left: 175px;
+}
+.banner img {
+	padding-left: 10px;
+	border: 0px;
+}
+.langbox {
+	position: relative;
+	top: -200px;
+	left: 735px;
+	background: #1b1f26;
+	width: 100px;
+	height: 100px;
+}
+.language-bar {
+	position: relative;
+	top: 28px;
+}
+.language-bar a, a:visited {
+	display: block;
+	text-decoration: none;
+}
+.language-bar img {
+	padding-left: 10px;
+	border: 0px;
+}
+.menu {
+	padding-top: 20px;
+}
+.menu a, a:visited { 
+	color: #FFF;
+	text-decoration: none;
+}
+.menu a div:hover {
+	color: #FFF;
+	background: #d91d14;
+}
+.menu-item {
+	color: #FFF;
+	font-size: 13pt;
+	width: 165px;
+	height: 23px;
+	background: #1b1f26;
+	margin-bottom: 5px;
+	padding-left: 10px;
+	padding-top: 7px;
+}
+#cufon-menu {
+	font-size: 0pt;
+}
+.page-content {
+	position: relative;
+	top: -10px;
+	border: none;
+	padding: 0px;
+	margin: 0px;
+	width: 835px;
+}
+.widgets {
+	width: 140px;
+	height: auto;
+	font-size: 0pt;
+	padding-top: 10px;
+}
+.widgets h1 {
+	font-size: 12pt;
+}
+.w-booking {
+	color: #FFF;
+	background-color: #1b1f26;
+	width: 140px;
+	height: 140px;
+}
+.w-contact {
+	#feature style
+}
+.slideshow {
+	position: relative;
+	left: -10px;
+	width: 500px;
+	height: auto;
+}
+.slideshow-images {
+	padding-bottom: 10px;
+	padding-right: 10px;
+}
+.content {
+	width: 660px;
+	height: auto;
+	text-align: justify;
+	position: relative;
+	padding: 0px;
+	left: -10px;
+}
+.content p, ul {
+	font-size: 15px;
+	color: #444444;
+	margin: 0px 0px 10px 0px;
+}
+.content h1 {
+	font-size: 25px;
+	color: #79633e;
+	margin: 0px 0px 15px 0px;
+}
+.content h2 {
+	font-size: 20px;
+	color: #79633e;
+	margin: 0px 0px 10px 0px;
+}
+.content a, a:visited {
+	text-decoration: none;
+	font-weight: bold;
+	color: #000;
+}
+.content a:hover {
+	color: #222222;
+}
+.page_accordion div {
+	height: auto;
+}
+.footer {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	font-size: 8pt;
+}
