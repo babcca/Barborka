@@ -2,17 +2,23 @@
 	require_once dirname(__file__).'/../lib/controller.php';
 	require_once dirname(__file__).'/../lib/application_manager.php';
 	require_once dirname(__file__).'/../lib/render.php';
-	require_once dirname(__file__).'/../lib/dibi/dibi.php';
-	
+	require_once dirname(__file__).'/../lib/config_loader.php';
+	require_once dirname(__file__).'/../lib/dibi/dibi.php';	
 	session_start();
+	
+	$config = new ConfigLoader("../config.ini");
+	
 	dibi::connect(array(
-		'driver'=>'mysql',
-		'username'=> 'w6811_barbora',
-		'password'=>'Kverty246',
+		'driver'=>$config->mysql->driver,
+		'username'=> $config->mysql->username,
+		'password'=> $config->mysql->password,
 		'host'=>(preg_match('/(www.)?apartments-barbora.com/', $_SERVER['SERVER_NAME']) == true ? 'wm8.wedos.net' : 'localhost'),
-		'database'=>'d6811_barbora',
-		'charset'=>'utf8'
+		'database'=> $config->mysql->database,
+		'charset'=> $config->mysql->charset
 	));
+
+
+
 	$app_manager = ApplicationManager::instance();
 	$app_manager->register(new Application("auth"));
 	$app_manager->register(new Application("book"));
