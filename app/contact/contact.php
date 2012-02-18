@@ -55,6 +55,7 @@
 			$headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
 			
 			if (mail("$to", "$subject", "$body", "$headers")) {
+				// TODO: PRESLOZIT DO CESTINY A JINYCH JAZYKU
 				$this->set_message("Message successfully sent!", 'contact');
 			} else {
 				$this->set_message("Message delivery failed...", 'contact');

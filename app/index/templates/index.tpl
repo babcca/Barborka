@@ -99,7 +99,7 @@
 				<div class="footer">
 					<img src="/img/line.png" alt="Horizontal line" />
 					<center>
-					<b>Copyright &copy; 2011 Pension Barbora, All rights reserved.</b><br />
+					<b>Copyright &copy; 2012 Pension Barbora, All rights reserved.</b><br />
 					Web Design and Web Development by Petr Babicka & Martin Kolesar | <a href="/project_info.html" target="_blank"><b>more info</b></a>
 					<center>
 				</div>

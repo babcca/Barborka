@@ -25,9 +25,6 @@ $(document).ready(function() {
 		collapsible: true,
 		active: false
 	});
-	
-	$.get('/getxml.php', {}, XmlOnLoad);
-	
 });
 
 function calendar_button_init(element, min, dateF) {
@@ -36,7 +33,7 @@ function calendar_button_init(element, min, dateF) {
 		showOn: "button",
 		buttonImage: "/img/calendar.png",
 		buttonImageOnly: true,
-		buttonText: "Show calendar",
+		buttonText: "Zobrazit kalendar",
 		dateFormat: dateF,
 		onSelect: function (selectedDate) {
 			var sd = selectedDate.split('-');

@@ -5,7 +5,7 @@
 	Presenter::view("menu", array(
 								"class"=>"menu",
 								"method"=>"generate_menu",
-								"params"=>array("lang"=>"%(.*)")));
+								"params"=>array("lang"=>"%([a-z]{2})")));
 	Presenter::view("menu", array(
 								"class"=>"menu",
 								"method"=>"generate_language_menu",

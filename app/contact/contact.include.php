@@ -5,12 +5,12 @@
 	Presenter::view("contact", array(
 								"class"=>"contact",
 								"method"=>"quick_contact",
-								"params"=>array("lang"=>"%(.*)")));
+								"params"=>array("lang"=>"%([a-z]{2})")));
 	
 	Presenter::view("contact", array(
 								"class"=>"contact",
 								"method"=>"contact_us",
-								"params"=>array("text_id"=>"%num", "lang"=>"%(.*)")));
+								"params"=>array("text_id"=>"%num", "lang"=>"%([a-z]{2})")));
 	
 	Presenter::view("contact", array(
 								"class"=>"contact",

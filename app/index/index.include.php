@@ -5,7 +5,7 @@
 	Presenter::view("index", array(
 								"class"=>"index",
 								"method"=>"clanek",
-								"params"=>array("id"=>"%([a-z-.]+)[home]", "lang"=>"%{en,de}[en]") 
+								"params"=>array("id"=>"%([a-z-.]+)[domu]", "lang"=>"%([a-z]{2})[cz]") 
 							));
 	Presenter::view("index", array(
 								"class"=>"index",

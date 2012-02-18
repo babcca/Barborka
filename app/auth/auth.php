@@ -14,7 +14,7 @@
 	}
 	
 	class auth_model extends AObject {
-		private $timeout = 60;
+		private $timeout = 3600;
 		public function __construct() {
 			parent::__construct('auth');
 			if (!isset($_SESSION['__bab_login'])) { $_SESSION['__bab_login'] = false; $_SESSION['__bab_login_timeout'] = 0; }
