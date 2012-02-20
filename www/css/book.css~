@@ -36,12 +36,13 @@
 }
 .book-button {
 	position: relative;
-	left: -11px;
+	left: -13px;
 	top: 5px;
-	height: 30px;
-	width: 140px;
+	bottom: 0px;
+	height: 29px;
+	width: 150px;
 	color: #FFF;
-	font-size: 15pt;
+	font-size: 12pt;
 	border: none;
 	background-color: #d91d14;
 	cursor: pointer;

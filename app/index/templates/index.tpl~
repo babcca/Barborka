@@ -106,7 +106,10 @@
 				</div>
 			</td>
 			<td valign="top" class="widgets">
-				<!-- weather and exchange widget -->			
+				<!-- weather and exchange widget -->
+				<div class="w-booking">
+					{call_app app='book' method='quick_book_form' param="lang=$lang"}	
+				</div>			
 			</td>	
 		</tr>
 	</table>

@@ -1,11 +1,11 @@
 #slider { 
-   width: 600px;
-   height: 296px;
+   width: 500px;
+   height: 280px;
    position: relative;
    overflow: hidden;
 }
 #sliderContent {
-   width: 600px;
+   width: 500px;
    position: relative;
    top: 0px;
    margin: 0px;

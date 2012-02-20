@@ -1,4 +1,4 @@
-<div class="">
+<div class="widgets-text">
 	<address>
 		{foreach from=$contact item=val key=key} 
 			{if $key == 'mail'}{mailto address=$val encode="hex"}{else}{$val}{/if}<br/>
