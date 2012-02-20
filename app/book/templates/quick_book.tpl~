@@ -18,7 +18,7 @@
 	</tr>
 	<tr>
 		<td colspan="2">
-			<input type="submit" class="book-button" value="{$trans.book_online}"/>
+			<input type="submit" class="book-button" value="Rezervovat"/>
 		</td>
 	</tr>
 	</table>

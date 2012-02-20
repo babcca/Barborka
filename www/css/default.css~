@@ -62,7 +62,6 @@ table {
 	border: 0px;
 }
 .menu {
-	width: 175px;
 	padding-top: 20px;
 }
 .menu a, a:visited { 

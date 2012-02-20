@@ -41,7 +41,7 @@
 	height: 30px;
 	width: 140px;
 	color: #FFF;
-	font-size: 12pt;
+	font-size: 15pt;
 	border: none;
 	background-color: #d91d14;
 	cursor: pointer;
