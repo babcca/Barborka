@@ -27,7 +27,7 @@
 	width: 140px;
 }
 .quick-book-form {
-	margin-left: 15px;
+	margin-left: 10px;
 }
 .quick-book-form .text-input {
 	color: #b5b5b5;
@@ -35,11 +35,15 @@
 	font-style: italic;
 }
 .book-button {
-	background-image: url('/img/book.png');
-	height: 20px;
-	width: 70px;
+	position: relative;
+	left: -11px;
+	top: 5px;
+	height: 30px;
+	width: 140px;
+	color: #FFF;
+	font-size: 15pt;
 	border: none;
-	background-color: transparent;
+	background-color: #d91d14;
 	cursor: pointer;
 }
 .book-button:hover {
@@ -65,4 +69,4 @@
 }
 .accordion h3 {
 	font-size: 15px;
-}
+}<strike></strike>
