@@ -91,22 +91,28 @@
 			$headers .= 'MIME-Version: 1.0' . "\r\n";
 			$headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
 			
-			$customer = array_slice($form_data, 7, 9, true);
-			dibi::query('insert into [book_customer] ', $customer);
-			
+                        $now = time();
+                        $coupon = dibi::query("select * from book_coupons where code=%s and used = 0 and valid_from <= %t and valid_to >= %t limit 1", $form_data["coupon"], $now, $now)->fetch();
+			if ($coupon) {
+                            $sale = $coupon["value"];
+                            dibi::query('update book_coupons set used=%t where id = %i', $now, $coupon["id"]);
+                        }
+                        $customer = array_slice($form_data, 7, 3, true);
+                        dibi::query('insert into [book_customer] ', $customer);
 			$order = array_slice($form_data, 0, 6, true);
-			$order['customer_id'] = dibi::insertId();
+                        $order['customer_id'] = dibi::insertId();
+                        if ($coupon) $order['coupon'] = $coupon["id"];
 			dibi::query('insert into [book_order] ', $order);	
 			$order_id = dibi::insertId();
 			
-			$rooms = array_slice($form_data, 6, 7, true);
-			foreach ($rooms['rooms'] as $room) {				
+			$rooms = array_slice($form_data, 6, 1, true);
+                        foreach ($rooms['rooms'] as $room) {				
 				if ($room['guests'] == 0) continue;
 				$room['order_id'] = $order_id;
-				$room['customer_id'] = $order['customer_id'];
 				dibi::query('insert into [book_rooms] ', $room);
 			}
-			$this->assign('order_id', $order_id	);
+                        $this->assign('coupon', $coupon);
+			$this->assign('order_id', $order_id);
 			$this->assign('calculated_price', $this->_calculate_price($form_data));
 			if (mail($to, $subject, $this->parse('book_order_email.tpl',$form_data), $headers)) {
 				if (mail($form_data['email'], $subject, $this->parse('book_order_email.tpl',$form_data), $headers)) {
@@ -117,6 +123,7 @@
 			} else {
 				$this->set_message("Internal system error", "book_order");
 			}
+                        echo '{"result":"ok"}';
 		}
 	}
 ?>

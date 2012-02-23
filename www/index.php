@@ -20,7 +20,7 @@
 	));
 	
 	$app_manager = ApplicationManager::instance();
-	$app_manager->register(new Application("index", array(new Application("auth"), new Application("gallery"), new Application("page"), new Application("contact"), new Application("menu"), new Application("book"))));
+	$app_manager->register(new Application("index", array(new Application("auth"), new Application("gallery"), new Application("page"), new Application("contact"), new Application("menu"), new Application("book"), new Application("coupon"))));
 
 	$controller = new Controller();
 	Presenter::$controller = $controller;

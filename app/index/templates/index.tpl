@@ -96,6 +96,7 @@
 				<!-- Nothing is here. -->
 			</td>
 			<td valign="top" class="content vtop">
+                                {get_message id='index_error'}
 				{call_app app=$app method=$method param="$param,lang=$lang"}
 				<div class="footer">
 					<img src="/img/line.png" alt="Horizontal line" />
