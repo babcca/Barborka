@@ -12,7 +12,7 @@
 				'%num'=>'[0-9]+',
 				'%string' => '[a-zA-Z ]+'
 		);
-		
+		private $error_message = '';
 		public function __construct() {
 		}
 		
@@ -58,14 +58,21 @@
 		
 		public function run_view() {
 			$this->process($_GET, 'callbacks_view', 'index', 'clanek');
+                        if ($this->error_message != '') $this->set_message ($this->error_message, 'index_error');
 		}
 		
 		public function run_method() {
 			$this->process($_POST, 'callbacks_method');
 			if ($this->post_refresh) {
+                                if ($this->error_message != '') $this->set_message ($this->error_message, 'index_error');
 				header('location: '. $_SERVER['REQUEST_URI']);
 				exit;
-			}
+			} else {
+                            if ($this->error_message != '') {
+                                echo '{"index_error": "'.$this->error_message.'"}';
+                                exit;
+                            }
+                        }
 		}
 		
 		private function check_permision($app) {
@@ -76,7 +83,7 @@
 		public function parse_extended($what, $where, $use_default) {
 			$parameters = array();
 			foreach ($what as $param=>$pattern) {
-				if (!array_key_exists($param, $where)) {
+                                if (!array_key_exists($param, $where)) {
 					if (preg_match('#\[([\w?=&/]+)\]$#', $pattern, $default)) { $parameters[$param] = $default[1]; }
 					else { throw new Exception("Expected parameter $param", 0); } 
 				} else if (!$this->check_param($where[$param], $pattern)) {
@@ -86,20 +93,27 @@
 					} else { throw new Exception("Bad parameter $param format", 0); }
 				} else { $parameters[$param] = $where[$param]; }
 			}
-			
 			return $parameters;
 		}
 		
 		private function call_method($data, $url, $use_default = false) {
-			$parameters = $this->parse_extended($data['params'], $url, $use_default);
-			if ($data['params_array'] === true) {
-				$parameters = array($parameters);
-			}
-			if (!isset($this->process_list[$data['class']])) {
+                        try {
+                            $parameters = $this->parse_extended($data['params'], $url, $use_default);
+                            if ($data['params_array'] === true) {
+                                $parameters = array($parameters);
+                            }
+                            if (!isset($this->process_list[$data['class']])) {
 				$this->process_list[$data['class']] = new $data['class'];
-			}
-			return call_user_func_array(array($this->process_list[$data['class']], $data['method']), $parameters);
-		}
+                            }
+                            return call_user_func_array(array($this->process_list[$data['class']], $data['method']), $parameters);
+                        } catch (Exception $e) {
+                            if ($e->getCode() == 0) {
+                                $this->error_message = 'Nebyli vyplneny povinne polozky - '.$e->getMessage();
+                            } else {
+                                $this->error_message = 'Neco se stalo :( - '.$e->getMessage();
+                            }
+                        }
+  		}
 		
 		/**
 		 * Return true when $param is validate by $pattern
@@ -156,6 +170,15 @@
 		public function register_method($app, $callback) {
 			if (!array_key_exists($app, $this->callbacks_method)) $this->callbacks_method[$app] = new callback_struct($callback);
 			else $this->callbacks_method[$app]->insert($callback);
+		}
+                /**
+		 * Ulozi do session data pod identifikatorem,
+		 * jeden identifikator muze mit vice polozek.
+		 * @param mixed $message Data k ulozeni
+		 * @param string $id Identifikator pro pristup
+		 */
+		private function set_message($message, $id = '') {
+			$_SESSION['__bab_messages'][$id][] = $message;
 		}
 		
 	}
