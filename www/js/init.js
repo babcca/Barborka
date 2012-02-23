@@ -3,6 +3,7 @@ Cufon.replace('#cufon-menu', { hover: { color: 'white' } });
 Cufon.replace('.widgets');
 Cufon.replace('.widgets a');
 Cufon.replace('#weather');
+Cufon.replace('#exchangeRates');
 //
 
 // jquery initialization
@@ -14,8 +15,7 @@ $(document).ready(function() {
 	$('.tooltip').tipsy();
 	$('#weather').weatherfeed(['EZXX0012'], {cufon: true});
 	init_tinymce();
-	$(".page_accordion").accordion();
-	
+	$(".page_accordion").accordion();	
 	
 	$("#room_2").accordion({
 		collapsible: true,
@@ -25,7 +25,21 @@ $(document).ready(function() {
 		collapsible: true,
 		active: false
 	});
+	
+	$.get('/getxml.php', {}, XmlOnLoad);
 });
+
+/* Exchange rates */
+function XmlOnLoad(xmlData, strStatus){
+	var jData = $(xmlData);
+	var jRate = jData.find("Cube [currency='CZK']");
+
+	var jList = $("#exchangeRates");
+	jList.append("1 EUR = ");
+	jList.append(jRate.attr("rate"));
+	jList.append(" CZK");
+	Cufon.refresh("#exchangeRates");
+}
 
 function calendar_button_init(element, min, dateF) {
 	var dates = $("#"+element[0]+", #"+element[1]).datepicker( {

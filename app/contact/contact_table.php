@@ -7,7 +7,7 @@ $contact_table = array(
 	 */
 	"address" => array(	
 				"name" => "Penzion Barbora",
-				"address" => "Doudova 22, 140 00 Praha 4"
+				"address" => "Doudova 22, </br>140 00 Praha 4"
 	),
 	/*
 	 * Kontaktni informace

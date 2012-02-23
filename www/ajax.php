@@ -12,7 +12,7 @@
 		'driver'=>$config->mysql->driver,
 		'username'=> $config->mysql->username,
 		'password'=> $config->mysql->password,
-		'host'=>(preg_match('/(www.)?apartments-barbora.com/', $_SERVER['SERVER_NAME']) == true ? 'wm8.wedos.net' : 'localhost'),
+		'host'=>(preg_match('/(www.)?apartments-barbora.com/', $_SERVER['SERVER_NAME']) == true ? 'wm16.wedos.net' : 'localhost'),
 		'database'=> $config->mysql->database,
 		'charset'=> $config->mysql->charset
 	));
