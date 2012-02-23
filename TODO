@@ -1,13 +1,18 @@
 - Presunout v contact kontaktni email do template
 
-- Vytvorit generator slevovych kodu
+- Vytvorit generator slevovych kodu [Petr B.]
   - v administraci checker kodu
   - platnost kodu od do
   - kotrolovat pri odeslani rezervace
   - pridat input pro slevovy kod
+- Upravit administraci
+  - Timeout
+  - Generovani slev
+  - Zmena nazvu polozky v menu
+- Mirrorovat zmeny na apartments-barbora.com
 
 - zmenit rok vytvoreni [DONE]
-- posunout book online
+- posunout book online [DONE]
 - v contact posunout adresu vyse
 - v gallery zmenit cilovou slozku
 - Rozisirit layout [DONE]
