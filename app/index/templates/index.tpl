@@ -44,7 +44,7 @@
 				<img src="/img/banner_photo_3.png" alt="Photo of Prague city" />
 				<img src="/img/banner_photo_4.png" alt="Photo of Prague city" />
 				<img src="/img/banner_photo_5.png" alt="Photo of Prague city" />
-				<img src="/img/banner_photo_5.png" alt="Photo of Prague city" />
+				<img src="/img/banner_photo_6.png" alt="Photo of Prague city" />
 			</div>
 			<div class="langbox">
 			{call_app app='menu' method='generate_language_menu' param="lang=$lang,id=$select_id"}
@@ -108,12 +108,14 @@
 			<td valign="top" class="widgets">
 				<div class="w-weather">
 					<h1>{$trans.weather_info}</h1>
+					<img src="/img/line_short.png" alt="Horizontal line" />
 					<div class="widgets-text">
 						<div id="weather" class="weatherFeed"></div>
 					</div>
 				</div>
 				<div class="w-exchange">
 					<h1>{$trans.exchange_rates}</h1>
+					<img src="/img/line_short.png" alt="Horizontal line" />
 					<div class="widgets-text">
 						<div id="exchangeRates"></div>
 					</div>
