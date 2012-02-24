@@ -14,6 +14,10 @@
 			$data["nonused"] = $this->coupon_model->get_nonused_coupon();
 			return $this->parse('coupon_editor.tpl', $data);
 		}
+                
+                public function coupon_create($form_data) {
+                    $this->set_message("Kupon byl vytvoren", "coupon_info");
+                }
 	}
 	
 	class coupon_model extends AObject {
