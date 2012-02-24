@@ -6,12 +6,13 @@
             <label for="value">Hodnota</label><input type="text" name="value" id="value" />
         </form>
         
-        <h1>Nepouzite kupony</h1>
-        {foreach from=$used item=$u}
-            <div>{$u.valid_from} - {$u.valid_to} = {$u.value}</div>
-        {/foreach}
-        <h1>Pouzite kupony</h1>
+        <h1>Neouzite kupony</h1>
         {foreach from=$nonused item=$u}
             <div>{$u.valid_from} - {$u.valid_to} = {$u.value}</div>
         {/foreach}
+        <h1>Pouzite kupony</h1>
+        {foreach from=$used item=u}
+            <div>{$u.code} -> {$u.valid_from} - {$u.valid_to} = {$u.value}</div>
+        {/foreach}
+        
 </div>

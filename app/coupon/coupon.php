@@ -24,10 +24,11 @@
                 
                 }
                 public function get_used_coupon() {
-                    return array();
+                    return dibi::query("select * from book_coupons where used != %t", 0)->fetchAll();
                 }
                 public function get_nonused_coupon() {
-                    return array();
+                    
+                    return dibi::query("select * from book_coupons where used = %t", 0)->fetchAll();
                 }
 	}
 ?>
