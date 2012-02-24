@@ -116,7 +116,7 @@
 		html += '>';
 		
 		// Add item data
-		html += '<div class="weatherCity">'+ feed.location.city +': </div>';
+		html += '<div class="weatherCity">'+ feed.location.city +': </div><br/>';
 		// added options.unit after degree
 		// added | and :
 		html += '<div class="weatherTemp">'+ feed.item.condition.temp +'&deg;' + options.unit.toUpperCase() + ' | </div>';

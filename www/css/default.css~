@@ -114,8 +114,36 @@ table {
 }
 .w-contact {
 	color: #000;
-	font-size: 10px;
 	width: 150px;
+	padding-top: 20px;
+	text-align: center;
+}
+.w-contact h1 {
+	font-size: 13pt;
+	margin: 0px;
+	padding: 0px 0px 7px 0px;
+}
+.w-contact p {
+	font-size: 10pt;
+	margin: 0px;
+}
+.w-contact img {
+	padding-bottom: 7px;
+	padding-top: 7px;
+}
+.w-weather {
+	color: #FFF;
+	background-color: #1b1f26;
+	text-align: center;
+	width: 150px;
+	height: 70px;
+}
+.w-exchange {
+	color: #FFF;
+	background-color: #1b1f26;
+	text-align: center;
+	width: 150px;
+	height: 70px;
 }
 .slideshow {
 	position: relative;
@@ -159,6 +187,26 @@ table {
 }
 .page_accordion div {
 	height: auto;
+}
+.button {
+	margin-top: 5px;
+	height: 30px;
+	width: 100px;
+	color: #FFF;
+	font-size: 12pt;
+	border: none;
+	background-color: #d91d14;
+	cursor: pointer;
+}
+.accordion {
+	margin-top: 10px;
+	height: auto;
+}
+.accordion div {
+	font-size: 12px;
+}
+.accordion h3 {
+	font-size: 15px;
 }
 .footer {
 	margin-top: 20px;

@@ -107,7 +107,18 @@
 				</div>
 			</td>
 			<td valign="top" class="widgets">
-				<!-- weather and exchange widget -->			
+				<div class="w-weather">
+					<h1>{$trans.weather_info}</h1>
+					<div class="widgets-text">
+						<div id="weather" class="weatherFeed"></div>
+					</div>
+				</div>
+				<div class="w-exchange">
+					<h1>{$trans.exchange_rates}</h1>
+					<div class="widgets-text">
+						<div id="exchangeRates"></div>
+					</div>
+				</div>			
 			</td>	
 		</tr>
 	</table>
