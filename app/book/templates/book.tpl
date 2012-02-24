@@ -62,6 +62,9 @@
 	
 			<label class="book_label">{$trans.phone}:<span style="color: red">*</span></label>
 			<input class="input" type="text" name="phone" size="20" /><br />
+
+                        <label class="book_label">{$trans.coupon}:</label>
+			<input class="input" type="text" name="coupon" size="20" /><br />
 	
 			<label>{$trans.your_message}</label><br />
 			<textarea class="message" name="message" cols="35" rows="4" style="height:200px"></textarea><br />
@@ -91,12 +94,17 @@
 	$("[name=send_book_order]").click(function () {
 		var btn = $(this);
 		btn.attr("disabled", "true");
-		var data = get_order_data(['name', 'email', 'phone', 'message']);
+		var data = get_order_data(['name', 'email', 'phone', 'message', 'coupon']);
 		data.method = 'book_order';
-		if (not_empty(data, [['name', 'name not be empty'], ['email', 'email not be empty'], ['phone', 'phone not be empty']])) {
-			$.post('/ajax.php', data, function (result) {
-				javascript:location.reload(true);
-			} );
+		if (not_empty(data, [['name', 'Jmeno musi byt vyplneno'], ['email', 'Email musi byt vyplnen'], ['phone', 'Telefon musi byt vyplnen']])) {
+                        btn.removeAttr('disabled');
+                        $.post('/ajax.php', data, function (result) {
+                            if (result.index_error != undefined) {
+                                $("#message_container").html(result.index_error);        
+                            } else {
+                                javascript:location.reload(true);
+                            }
+			}, 'json' );
 		} else {
 			btn.removeAttr('disabled');
 		}
@@ -108,11 +116,17 @@
 		var data = get_data();
 		if ((data.date_from == '') || (data.date_to == '')) {
 			btn.removeAttr('disabled');
+                        $("#message_container").html('Vyplnte prosim datumy');
+                        return;
 		};	
 		$.post('/ajax.php', data, function (result) {
-			$("#message_container").html(result.messages);
-			$(".calculator").html(result.result_price + ' &euro;');
-			btn.removeAttr('disabled');
+                        if (result.index_error != undefined) {
+                            $("#message_container").html(result.index_error);
+                        } else {
+                            $("#message_container").html(result.messages);
+                            $(".calculator").html(result.result_price + ' &euro;');
+                            btn.removeAttr('disabled');
+                        }
 		}, 'json' );	
 	});
 	

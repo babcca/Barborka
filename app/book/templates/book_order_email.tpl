@@ -38,9 +38,11 @@
 			<p>Notes: <br />
 			{$message}
 			</p></div>
-			
+			{if $coupon}
+                            Slevovy kupon v hodnote: {$coupon.value}
+                        {/if}
 			<div style="background-color: #8B815F; font-size: 20px;"><p style="padding-left: 10px;">Total price: <br />
-			<b>{$calculated_price.result_price}</b>
+			<b>{if $coupon != false} {$calculated_price.result_price - $coupon.value} {else} {$calculated_price.result_price} {/if}</b>
 			</p></div>
 		</p>
 	</div>

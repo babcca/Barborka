@@ -27,6 +27,7 @@
 		'third_room_properties' => 'Treti pokoj',
 		'approx_price' => 'Vase predbezna cena <span class="calculator"> 0 Kc </span>',
 		'exchange_rates' => 'Prevodni kurz',
+                'coupon' => 'Slevovy kod',
 		'submit' => 'Odeslat',
 		'calculate' => 'Spocitat'
 	);

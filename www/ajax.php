@@ -4,6 +4,7 @@
 	require_once dirname(__file__).'/../lib/render.php';
 	require_once dirname(__file__).'/../lib/config_loader.php';
 	require_once dirname(__file__).'/../lib/dibi/dibi.php';	
+        error_reporting(E_ALL);
 	session_start();
 	
 	$config = new ConfigLoader("../config.ini");
