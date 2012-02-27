@@ -26,6 +26,7 @@
 	$app_manager->register(new Application("page"));
 	$app_manager->register(new Application("gallery"));
 	$app_manager->register(new Application("index"));
+        $app_manager->register(new Application("coupon"));
 
 	$controller = new Controller();
 	$controller->post_refresh = false;

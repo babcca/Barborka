@@ -7,6 +7,11 @@
 								"method"=>"book_form",
 								"params"=>array('lang'=>'%([a-z]{2})', 'text_id'=>'%([0-9]+)')
 								));
+        Presenter::view("book", array(
+								"class"=>"book",
+								"method"=>"book_prices",
+                                                                "params"=>array("text_id"=>"%num")
+								));
 	Presenter::view("book", array(
 								"class"=>"book",
 								"method"=>"quick_book_form",
@@ -67,6 +72,7 @@
 												"name"=>"%string",
 												"email"=>"%(^([_a-z0-9-]+)(\.[_a-z0-9-]+)*@([a-z0-9-]+)(\.[a-z0-9-]+)*(\.[a-z]{2,4})$)",
 												"phone"=>"%(^\+?[0-9 ]+)[]",
-                                                                                                "coupon"=>"%(^[a-zA-Z0-9]*)"
+                                                                                                "coupon"=>"%(^[a-zA-Z0-9]*)",
+                                                                                                "visited"=>"%{true,false}[false]"
 								)));
 ?>

@@ -39,10 +39,11 @@
 			{$message}
 			</p></div>
 			{if $coupon}
-                            Slevovy kupon v hodnote: {$coupon.value}
+                            Slevovy kupon v hodnote: {$coupon.value}%
                         {/if}
+                        Navstevnik tu ji byl: {$form_data["visited]}
 			<div style="background-color: #8B815F; font-size: 20px;"><p style="padding-left: 10px;">Total price: <br />
-			<b>{if $coupon != false} {$calculated_price.result_price - $coupon.value} {else} {$calculated_price.result_price} {/if}</b>
+			<b>{if $coupon != false} {$calculated_price.result_price*(1-($coupon.value/100))} {else} {$calculated_price.result_price} {/if}</b>
 			</p></div>
 		</p>
 	</div>

@@ -24,6 +24,11 @@
 			include "price_list.php";
 			return $this->parse("book_editor.tpl", $price_list);
 		}
+                public function book_prices($text_id) {
+                        $this->assign('text', dibi::query("select * from [page_content] where [id]=%i", $text_id)->fetch());
+			include "price_list.php";
+			return $this->parse("book_prices.tpl", $price_list);
+		}
 	}
 	
 	class book_model extends AObject {	
@@ -102,6 +107,7 @@
 			$order = array_slice($form_data, 0, 6, true);
                         $order['customer_id'] = dibi::insertId();
                         if ($coupon) $order['coupon'] = $coupon["id"];
+                        $order["visited"] = $form_data["visited"];
 			dibi::query('insert into [book_order] ', $order);	
 			$order_id = dibi::insertId();
 			

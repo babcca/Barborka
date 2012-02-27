@@ -2,10 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<script src="/js/jquery-1.6.2.min.js" type="text/javascript"></script>
+	<script src="/js/jquery.js" type="text/javascript"></script>
 	<script src="/js/jquery-ui.js" type="text/javascript"></script>
 	<script src="/js/tiny_mce/jquery.tinymce.js" type="text/javascript"></script>	
-	<link rel="stylesheet" type="text/css" href="/css/humanity/jquery-ui-1.8.14.custom.css" />
+	<link rel="stylesheet" type="text/css" href="/css/humanity/jquery-ui-1.8.17.custom.css" />
 <style>
 	.left {
 		width: 200px;
@@ -78,6 +78,7 @@ $(document).ready(function () {
 	</ol>
 </div>
 <div class="right content">
+        {get_message id='index_error'}	
 	<div id="info-message"></div>
 	{call_app app=$p1 method=$p2}
 </div>

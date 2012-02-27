@@ -29,6 +29,7 @@
 		'exchange_rates' => 'EXCHANGE RATES',
                 'coupon' => 'Sale code',
 		'submit' => 'Submit',
-		'calculate' => 'Calculate'
+		'calculate' => 'Calculate',
+                'visited' => 'I was here'
 	);
 ?>

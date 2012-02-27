@@ -29,6 +29,7 @@
 		'exchange_rates' => 'Prevodni kurz',
                 'coupon' => 'Slevovy kod',
 		'submit' => 'Odeslat',
-		'calculate' => 'Spocitat'
+		'calculate' => 'Spocitat',
+                'visited' => 'Uz jsem zde byl'
 	);
 ?>
