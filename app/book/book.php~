@@ -91,8 +91,8 @@
 		}
 		public function book_order($form_data) {
 			$subject = "Apartments Barbora - Reservation request";
-			$to = "ubytovani@omikron.cz";
-			$headers = "From: Vila Barbora <info@apartments-barbora.com>\r\n";
+			$to = "info@apartments-barbora.com";
+			$headers = "From: Pension Barbora <info@apartments-barbora.com>\r\n";
 			$headers .= 'MIME-Version: 1.0' . "\r\n";
 			$headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
 			

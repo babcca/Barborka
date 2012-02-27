@@ -16,5 +16,5 @@
 	height: 80px;
 }
 .gallery img:hover {
-	border-color: #c7c3b3;
+	border-color: #b2a984;
 }

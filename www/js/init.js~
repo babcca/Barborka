@@ -35,7 +35,7 @@ function XmlOnLoad(xmlData, strStatus){
 	var jRate = jData.find("Cube [currency='CZK']");
 
 	var jList = $("#exchangeRates");
-	jList.append("1 EUR<br /> = <br />");
+	jList.append("1 EUR = ");
 	jList.append(jRate.attr("rate"));
 	jList.append(" CZK");
 	Cufon.refresh("#exchangeRates");

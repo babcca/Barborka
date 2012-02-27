@@ -136,14 +136,33 @@ table {
 	background-color: #1b1f26;
 	text-align: center;
 	width: 150px;
-	height: 70px;
+	height: 80px;
+}
+.w-weather h1 {
+	font-size: 13pt;
+	margin: 0px;
+	padding: 10px 0px 0px 0px;
+}
+.w-weather img {
+	padding-bottom: 7px;
+	padding-top: 7px;
 }
 .w-exchange {
 	color: #FFF;
 	background-color: #1b1f26;
 	text-align: center;
 	width: 150px;
-	height: 70px;
+	height: 80px;
+	margin-top: 10px;
+}
+.w-exchange h1 {
+	font-size: 12pt;
+	margin: 0px;
+	padding: 10px 0px 0px 0px;
+}
+.w-exchange img {
+	padding-bottom: 7px;
+	padding-top: 7px;
 }
 .slideshow {
 	position: relative;
@@ -185,13 +204,13 @@ table {
 .content a:hover {
 	color: #222222;
 }
-.page_accordion div {
-	height: auto;
+.right {
+	#style
 }
 .button {
 	margin-top: 5px;
 	height: 30px;
-	width: 100px;
+	width: 130px;
 	color: #FFF;
 	font-size: 12pt;
 	border: none;

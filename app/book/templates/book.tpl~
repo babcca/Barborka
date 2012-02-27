@@ -75,7 +75,7 @@
 		<td>
 			<!-- Nothing is here. -->
 		</td>
-		<td align="center" class="right">
+		<td class="right">
 			<input name="show_price" type="button" class="button" value="{$trans.calculate}" />
 			<input name="send_book_order" type="button" class="button" value="{$trans.submit}" />
 		</td>

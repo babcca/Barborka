@@ -152,7 +152,7 @@ table {
 	background-color: #1b1f26;
 	text-align: center;
 	width: 150px;
-	height: 70px;
+	height: 100px;
 	margin-top: 10px;
 }
 .w-exchange h1 {
@@ -204,10 +204,13 @@ table {
 .content a:hover {
 	color: #222222;
 }
+.right {
+	#style
+}
 .button {
 	margin-top: 5px;
 	height: 30px;
-	width: 100px;
+	width: 130px;
 	color: #FFF;
 	font-size: 12pt;
 	border: none;

@@ -27,9 +27,9 @@
 		'third_room_properties' => 'Third room properties',
 		'approx_price' => 'Your approximate price <span class="calculator"> 0 &euro; </span>',
 		'exchange_rates' => 'EXCHANGE RATES',
-                'coupon' => 'Sale code',
+      'coupon' => 'Sale code',
 		'submit' => 'Submit',
 		'calculate' => 'Calculate',
-                'visited' => 'I was here'
+      'visited' => 'I was here'
 	);
 ?>
