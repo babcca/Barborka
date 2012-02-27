@@ -65,7 +65,8 @@
 
                         <label class="book_label">{$trans.coupon}:</label>
 			<input class="input" type="text" name="coupon" size="20" /><br />
-	
+                        <label class="book_label">{$trans.visited}:</label>
+                        <input type="checkbox" name="visited" id="visited" value="visited" /><br />
 			<label>{$trans.your_message}</label><br />
 			<textarea class="message" name="message" cols="35" rows="4" style="height:200px"></textarea><br />
 		</td>
@@ -95,6 +96,7 @@
 		var btn = $(this);
 		btn.attr("disabled", "true");
 		var data = get_order_data(['name', 'email', 'phone', 'message', 'coupon']);
+                data.visited = get_checkbox("visited");
 		data.method = 'book_order';
 		if (not_empty(data, [['name', 'Jmeno musi byt vyplneno'], ['email', 'Email musi byt vyplnen'], ['phone', 'Telefon musi byt vyplnen']])) {
                         btn.removeAttr('disabled');
