@@ -1,6 +1,6 @@
 <?php
 $price_list = array (
-"euro"=>25,
+"euro"=>1,
 "parking"=>250,
 "breakfast"=>125,
 "transport"=>1000,

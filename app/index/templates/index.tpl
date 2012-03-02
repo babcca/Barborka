@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="Content-Language" content="{$lang}">
 	<meta name="description" content="{$description}" />
-	<meta name="author" content="Mato Kolesar" />
+	<meta name="author" content="root" />
 	<link rel="shortcut icon" href="/img/favicon.ico" />
 
 	<link rel="stylesheet" type="text/css" href="/css/default.css" />
@@ -64,19 +64,19 @@
 					<div id="slider">
 					   <ol id="sliderContent">
 					      <li class="sliderImage">
-					         <img src="/img/slider/01.jpg" alt="xxx"/>
+					         <img src="/img/slider/05.jpg" alt="xxx"/>
 					      </li>
 					      <li class="sliderImage">
 					         <img src="/img/slider/02.jpg" alt="xxx"/>
 					      </li>
 						  <li class="sliderImage">
-					         <img src="/img/slider/03.jpg" alt="xxx"/>
+					         <img src="/img/slider/01.jpg" alt="xxx"/>
 					      </li>
 						  <li class="sliderImage">
 					         <img src="/img/slider/04.jpg" alt="xxx"/>
 					      </li>
 						  <li class="sliderImage">
-					         <img src="/img/slider/05.jpg" alt="xxx"/>
+					         <img src="/img/slider/03.jpg" alt="xxx"/>
 					      </li>
 					   </ol>
 					</div>  

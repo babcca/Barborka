@@ -1,5 +1,5 @@
 <?php
-	// Deutsch page layout
+	// Czech page layout
 	$ttable = array(
 		'book_online' => 'Rezervovat nyni',
 		'more_information' => 'Kontaktni informace',
@@ -10,7 +10,7 @@
 		'name'=>'Jmeno',
 		'your_message'=>'Vase zprava',
 		'rooms'=> 'Pokoje',
-		'guests'=> 'Hosti',
+		'guests'=> 'Osob',
 		'parking' => 'Parkovani',
 		'breakfast'=>'Snidane',
 		'room_guests' => 'Pocet hostu',
@@ -25,7 +25,7 @@
 		'first_room_properties' => 'Prvni pokoj',
 		'second_room_properties' => 'Druhy pokoj',
 		'third_room_properties' => 'Treti pokoj',
-		'approx_price' => 'Vase predbezna cena <span class="calculator"> 0 Kc </span>',
+		'approx_price' => 'Vase predbezna cena <span class="calculator"> 0 Kč </span>',
 		'exchange_rates' => 'Prevodni kurz',
       'coupon' => 'Slevovy kod',
 		'submit' => 'Odeslat',

@@ -129,7 +129,7 @@
                             $("#message_container").html(result.index_error);
                         } else {
                             $("#message_container").html(result.messages);
-                            $(".calculator").html(result.result_price + ' &euro;');
+                            $(".calculator").html(result.result_price + ' Kč');
                             btn.removeAttr('disabled');
                         }
 		}, 'json' );	
