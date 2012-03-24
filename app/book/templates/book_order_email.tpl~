@@ -5,7 +5,7 @@
 	<body>
 	<div style="background-color: #DFDBC7; font-family: Arial, Helvetica, sans-serif;">
 		<div style="background-color: #8B815F; height: 50px;"><img src="http://barka.apartments-barbora.com/img/logo.png" alt="logo" style="padding-left: 10px; height: 100px; width: 175px; float: left;"></div>
-		<div style="padding: 10px;"><b style="font-size:20px;">Předběžná rezervace - potvrzení</b>	
+		<div style="padding: 10px;"><b style="font-size:20px;">Pre-booking confirmation</b>
 		<p>This email was sent via booking form from website <b>www.apartments-barbora.com.</b><br />
 		Please wait for us to confirm the reservation, we will contact you on email or phone as soon as possible.</p>
 		
@@ -14,7 +14,7 @@
 		
 		<p>Guest informations:</p>
 		<p>
-		 - {$trans.name}: <b>{$name}</b><br />
+		 - Name: <b>{$name}</b><br />
 		 - Email: <b>{$email}</b><br />
 		 - Phone: <b>{$phone}</b>
 		

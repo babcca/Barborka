@@ -91,7 +91,7 @@
 		}
 		public function book_order($form_data) {
 			$subject = "Apartmany Vila Barbora - požadavek na rezervaci";
-			$to = "kolesar.martin@gmail.com";
+			$to = "ubytovani@omikron.cz";
 			$headers = "From: Apartmany Vila Barbora <info@apartments-barbora.com>\r\n";
 			$headers .= 'MIME-Version: 1.0' . "\r\n";
 			$headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
