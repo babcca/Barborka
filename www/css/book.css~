@@ -17,7 +17,7 @@
 	text-align: left;
 }
 .book_label {
-	width: 130px;
+	width: 140px;
 	display: inline-block;
 }
 .book_panel {

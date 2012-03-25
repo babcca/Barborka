@@ -17,7 +17,7 @@
 		<th class="book_panel">{$trans.booking_detail}</th><th>Personal information</th>
 	</tr>
 	<tr>
-		<td class="vtop">
+		<td valign="top">
 			<label class="book_label">{$trans.check_in_date}:</label> 
 			<input readonly="readonly" class="text-input" type="text" id="date_from" name="date_from" size="15" value="{$default.1}" /><br />
 	
@@ -53,7 +53,7 @@
 				</div>	
 			</div>
 		</td>
-		<td class="vtop">
+		<td valign="top">
 			<label class="book_label">{$trans.name}:<span style="color: red">*</span></label>
 			<input class="input" type="text" name="name" size="20" /><br />
 	

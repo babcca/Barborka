@@ -152,7 +152,7 @@ table {
 	background-color: #1b1f26;
 	text-align: center;
 	width: 150px;
-	height: 80px;
+	height: 100px;
 	margin-top: 10px;
 }
 .w-exchange h1 {

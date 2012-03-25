@@ -565,6 +565,9 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
 .ui-progressbar .ui-progressbar-value {margin: -1px; height:100%; }
 
 /*EDIT*/
-div.ui-datepicker{
+div.ui-datepicker {
  font-size:10px;
+}
+.ui-accordion .ui-accordion-content {
+	padding: 15px 10px;
 }

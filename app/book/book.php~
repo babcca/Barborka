@@ -24,8 +24,8 @@
 			include "price_list.php";
 			return $this->parse("book_editor.tpl", $price_list);
 		}
-                public function book_prices($text_id) {
-                        $this->assign('text', dibi::query("select * from [page_content] where [id]=%i", $text_id)->fetch());
+      public function book_prices($text_id) {
+         $this->assign('text', dibi::query("select * from [page_content] where [id]=%i", $text_id)->fetch());
 			include "price_list.php";
 			return $this->parse("book_prices.tpl", $price_list);
 		}
@@ -89,35 +89,37 @@
 			 inner join [book_order] bo on bc.customer_id = bo.customer_id AND bo.order_id = %i 
 			 inner join [book_rooms] br on br.order_id = bo.order_id', $order_id)->fetchAll();
 		}
-		public function book_order($form_data) {
+		public function book_order($form_data) {		
 			$subject = "Apartmany Vila Barbora - požadavek na rezervaci";
-			$to = "ubytovani@omikron.cz";
+			$to = "kolesar.martin@gmail.com";
 			$headers = "From: Apartmany Vila Barbora <info@apartments-barbora.com>\r\n";
 			$headers .= 'MIME-Version: 1.0' . "\r\n";
 			$headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
-			
-                        $now = time();
-                        $coupon = dibi::query("select * from book_coupons where code=%s and used = 0 and valid_from <= %t and valid_to >= %t limit 1", $form_data["coupon"], $now, $now)->fetch();
+         
+         $now = time();
+         $coupon = dibi::query("select * from book_coupons where code=%s and used = 0 and valid_from <= %t and valid_to >= %t limit 1", $form_data["coupon"], $now, $now)->fetch();
 			if ($coupon) {
-                            $sale = $coupon["value"];
-                            dibi::query('update book_coupons set used=%t where id = %i', $now, $coupon["id"]);
-                        }
-                        $customer = array_slice($form_data, 7, 3, true);
-                        dibi::query('insert into [book_customer] ', $customer);
+         	$sale = $coupon["value"];
+            dibi::query('update book_coupons set used=%t where id = %i', $now, $coupon["id"]);
+         }
+         
+         $customer = array_slice($form_data, 7, 3, true);
+         dibi::query('insert into [book_customer] ', $customer);
 			$order = array_slice($form_data, 0, 6, true);
-                        $order['customer_id'] = dibi::insertId();
-                        if ($coupon) $order['coupon'] = $coupon["id"];
-                        $order["visited"] = $form_data["visited"];
+         $order['customer_id'] = dibi::insertId();
+         if ($coupon) $order['coupon'] = $coupon["id"];
+         $order["visited"] = $form_data["visited"];
 			dibi::query('insert into [book_order] ', $order);	
 			$order_id = dibi::insertId();
 			
 			$rooms = array_slice($form_data, 6, 1, true);
-                        foreach ($rooms['rooms'] as $room) {				
+	      foreach ($rooms['rooms'] as $room) {				
 				if ($room['guests'] == 0) continue;
 				$room['order_id'] = $order_id;
 				dibi::query('insert into [book_rooms] ', $room);
 			}
-                        $this->assign('coupon', $coupon);
+         
+         $this->assign('coupon', $coupon);
 			$this->assign('order_id', $order_id);
 			$this->assign('calculated_price', $this->_calculate_price($form_data));
 			if (mail($to, $subject, $this->parse('book_order_email.tpl',$form_data), $headers)) {
