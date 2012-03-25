@@ -28,7 +28,7 @@
 	<script src="/js/slider.js" type="text/javascript"></script>
 	<script src="/js/jquery.tipsy.js" type="text/javascript"></script>
 	
-	<title>Pension Barbora | {$page_title}</title>
+	<title>Apartmány Vila Barbora | {$page_title}</title>
 </head>
 
 <body>
@@ -36,7 +36,7 @@
 	<div class="page-body">
 		<div class="head">
 			<div class="logo">
-				<img src="/img/logo.png" alt="Pension Barbora | {$page_title}" title="Pension Barbora | {$page_title}" />
+				<img src="/img/logo.png" alt="Apartmány Vila Barbora | {$page_title}" title="Apartmány Vila Barbora | {$page_title}" />
 			</div>
 			<div class="banner">
 				<img src="/img/banner_photo_1.png" alt="Photo of Prague city" />
@@ -101,7 +101,7 @@
 				<div class="footer">
 					<img src="/img/line.png" alt="Horizontal line" />
 					<center>
-					<b>Copyright &copy; 2012 Pension Barbora, All rights reserved.</b><br />
+					<b>Copyright &copy; 2012 Apartmány Vila Barbora, All rights reserved.</b><br />
 					Web Design and Web Development by Petr Babicka & Martin Kolesar | <a href="/project_info.html" target="_blank"><b>more info</b></a>
 					<center>
 				</div>
