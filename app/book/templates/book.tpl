@@ -64,7 +64,7 @@
 			<input class="input" type="text" name="phone" size="20" /><br />
 
                         <label class="book_label">{$trans.coupon}:</label>
-			<input class="input" type="text" name="coupon" size="20" /><br />
+			<input class="input" type="text" name="coupon" id="coupon" size="20" /><br />
                         <label class="book_label">{$trans.visited}:</label>
                         <input type="checkbox" name="visited" id="visited" value="visited" /><br />
 			<label>{$trans.your_message}</label><br />
@@ -87,7 +87,7 @@
 		return ($(id).attr("checked") == undefined) ? 'false' : 'true';
 	};
 	function get_data() {
-		data = { app:'book',method:'calculate_price',date_from:$('#date_from').val(),date_to:$('#date_to').val(),transfer:get_checkbox('#transfer'),breakfast:get_checkbox('#breakfast'),rooms: { } };
+		data = { app:'book',method:'calculate_price',date_from:$('#date_from').val(),date_to:$('#date_to').val(),transfer:get_checkbox('#transfer'),breakfast:get_checkbox('#breakfast'),rooms: { }, coupon: $('#coupon').val() };
 		for (var i = 0; i < 3; ++i) { data['rooms'][i] = { guests:$('[name=guests_'+i+']:checked').val(),beds_s : $('[name=beds_s_'+i+']:checked').val(),beds_d : $('[name=beds_d_'+i+']:checked').val(),parking : get_checkbox('[name=parking_'+i+']') }; }
 		return data;
 	}
