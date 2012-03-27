@@ -32,7 +32,7 @@
 				<input type="checkbox" name="breakfast" id="breakfast" value="breakfast" />
 			</span><br />
 			<label class="book_label">{$trans.arrival_time}:</label>
-			{html_select_time display_seconds=false use_24_hours=false minute_interval=15}
+			{html_select_time prefix=arrival display_seconds=false use_24_hours=true minute_interval=15}
 			
 			<div class="accordion" id="room_1">
 				<h3>{$trans.first_room_properties}:</h3>
@@ -83,6 +83,9 @@
 </table>
 {*</form>*}
 <script type="text/javascript">
+        function get_arrival_time() {
+            return $("[name=arrivalHour]").val() + ":" + $("[name=arrivalMinute]").val();
+        }
 	function get_checkbox(id) {
 		return ($(id).attr("checked") == undefined) ? 'false' : 'true';
 	};
@@ -96,11 +99,12 @@
 	}
 		
 	$("[name=send_book_order]").click(function () {
-		var btn = $(this);
+                var btn = $(this);
 		btn.attr("disabled", "true");
 		var data = get_order_data(['name', 'email', 'phone', 'message', 'coupon']);
                 data.visited = get_checkbox("visited");
 		data.method = 'book_order';
+                data.arrival_time = get_arrival_time();
 		if (not_empty(data, [['name', 'Jmeno musi byt vyplneno'], ['email', 'Email musi byt vyplnen'], ['phone', 'Telefon musi byt vyplnen']])) {
                         btn.removeAttr('disabled');
                         $.post('/ajax.php', data, function (result) {

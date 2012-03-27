@@ -146,7 +146,7 @@ class book_model extends AObject {
         dibi::query('insert into [book_customer] ', $customer);
         $order = array_slice($form_data, 0, 6, true);
         $order['customer_id'] = dibi::insertId();
-        
+        $order['arrival_time'] = strtotime($order['arrival_time']);
         $is_coupon_used = $coupon != null ? true : false;
         if ($is_coupon_used)
             $order['coupon'] = $coupon["id"];

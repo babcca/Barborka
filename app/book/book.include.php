@@ -65,7 +65,7 @@ Presenter::method("book", array(
     "params_array" => true,
     "params" => array("date_from" => "%(^[0-9]{2}-[0-9]{2}-[0-9]{4}$)",
         "date_to" => "%(^[0-9]{2}-[0-9]{2}-[0-9]{4}$)",
-        "arrival_time" => "%([0-9]+)[0]",
+        "arrival_time" => "%([0-9]+:[0-9]+)",
         "breakfast" => "%{false,true}[false]",
         "transfer" => "%{true,false}[false]",
         "message" => "%(.*)[]",
