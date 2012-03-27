@@ -185,11 +185,8 @@ class book_model extends AObject {
         $this->assign('order_id', $order_id);
         $this->assign('calculated_price', $calculated_price);
         $this->get_translate($form_data['lang']);
-        $mail_body["a"] = $this->parse('book_order_email_'.$form_data['lang'].'.tpl', $form_data);
-        
-        echo json_encode($mail_body);
-        
-        /*
+        $mail_body = $this->parse('book_order_email_'.$form_data['lang'].'.tpl', $form_data);
+   
         if (mail($to, $subject, $mail_body, $headers)) {
             if (mail($form_data['email'], $mail_body, $headers)) {
                 $this->set_message("Prebooking complete, please check your email", "book_order");
@@ -199,8 +196,8 @@ class book_model extends AObject {
         } else {
             $this->set_message("Internal system error", "book_order");
         }
-         */
-        //echo '{"result":"ok"}';
+        
+        echo '{"result":"ok"}';
     }
 
 }
