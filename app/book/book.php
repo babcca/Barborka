@@ -17,6 +17,7 @@ class book extends AObject {
         }
         $text = dibi::query('select * from [page_content] where [id] = %i', $text_id)->fetch();
         $this->get_translate($lang);
+        $this->assign("lang", $lang);
         return $this->parse("book.tpl", $text);
     }
 
@@ -129,6 +130,7 @@ class book_model extends AObject {
         $return['messages'] = $this->parse('book_price_calculator.tpl');
         $return['accomm_price'] = ceil($accomm_price / $price_list["euro"]);
         $return['services_price'] = ceil($services_price / $price_list["euro"]);
+        $return['sale'] = $sale;
         $return['result_price'] = ceil(($services_price + $accomm_price) / $price_list["euro"]) * $price_sale;
         return $return;
     }
@@ -139,30 +141,23 @@ class book_model extends AObject {
 			 inner join [book_rooms] br on br.order_id = bo.order_id', $order_id)->fetchAll();
     }
 
-    public function book_order($form_data) {
-        $subject = "Apartmany Vila Barbora - požadavek na rezervaci";
-        $to = "kolesar.martin@gmail.com";
-        $headers = "From: Apartmany Vila Barbora <info@apartments-barbora.com>\r\n";
-        $headers .= 'MIME-Version: 1.0' . "\r\n";
-        $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
-
-        $now = time();
-        $coupon = dibi::query("select * from book_coupons where code=%s and used = 0 and valid_from <= %t and valid_to >= %t limit 1", $form_data["coupon"], $now, $now)->fetch();
-        if ($coupon) {
-            $sale = $coupon["value"];
-            dibi::query('update book_coupons set used=%t where id = %i', $now, $coupon["id"]);
-        }
-
+    private function insertOrder($form_data, $coupon) {
         $customer = array_slice($form_data, 7, 3, true);
         dibi::query('insert into [book_customer] ', $customer);
         $order = array_slice($form_data, 0, 6, true);
         $order['customer_id'] = dibi::insertId();
-        if ($coupon)
+        
+        $is_coupon_used = $coupon != null ? true : false;
+        if ($is_coupon_used)
             $order['coupon'] = $coupon["id"];
+        
         $order["visited"] = $form_data["visited"];
         dibi::query('insert into [book_order] ', $order);
         $order_id = dibi::insertId();
-
+        return $order_id;
+    }
+    
+    private function insertRooms($form_data, $order_id){
         $rooms = array_slice($form_data, 6, 1, true);
         foreach ($rooms['rooms'] as $room) {
             if ($room['guests'] == 0)
@@ -170,12 +165,33 @@ class book_model extends AObject {
             $room['order_id'] = $order_id;
             dibi::query('insert into [book_rooms] ', $room);
         }
+    }
+    
+    public function book_order($form_data) {
+        $subject = "Apartmany Vila Barbora - požadavek na rezervaci";
+        $to = "kolesar.martin@gmail.com";
+        $headers = "From: Apartmany Vila Barbora <info@apartments-barbora.com>\r\n";
+        $headers .= 'MIME-Version: 1.0' . "\r\n";
+        $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
 
-        $this->assign('coupon', $coupon);
+        $calculated_price =  $this->_calculate_price($form_data);
+        // ma side effekty, znepplatni zadany kup, 
+        // tedy cena se musi spocitat driv
+        $coupon = $this->processCoupon($form_data["coupon"]);
+        $order_id = $this->insertOrder($form_data, $coupon);
+        $this->insertRooms($form_data, $order_id);
+        
+        $this->assign('full_coupon', $coupon);
         $this->assign('order_id', $order_id);
-        $this->assign('calculated_price', $this->_calculate_price($form_data));
-        if (mail($to, $subject, $this->parse('book_order_email.tpl', $form_data), $headers)) {
-            if (mail($form_data['email'], $subject, $this->parse('book_order_email.tpl', $form_data), $headers)) {
+        $this->assign('calculated_price', $calculated_price);
+        $this->get_translate($form_data['lang']);
+        $mail_body["a"] = $this->parse('book_order_email_'.$form_data['lang'].'.tpl', $form_data);
+        
+        echo json_encode($mail_body);
+        
+        /*
+        if (mail($to, $subject, $mail_body, $headers)) {
+            if (mail($form_data['email'], $mail_body, $headers)) {
                 $this->set_message("Prebooking complete, please check your email", "book_order");
             } else {
                 $this->set_message("Prebook error, we can't send you email", "book_order");
@@ -183,7 +199,8 @@ class book_model extends AObject {
         } else {
             $this->set_message("Internal system error", "book_order");
         }
-        echo '{"result":"ok"}';
+         */
+        //echo '{"result":"ok"}';
     }
 
 }
